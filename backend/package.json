@@ -1,0 +1,39 @@
+{
+  "name": "spur-chatagent-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "db:ensure": "node scripts/ensure-database.js",
+    "db:create": "sequelize-cli db:create",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:migrate:undo:all": "sequelize-cli db:migrate:undo:all",
+    "db:status": "sequelize-cli db:migrate:status",
+    "db:setup": "npm run db:ensure && npm run db:migrate",
+    "start": "npm run start:conversation",
+    "start:conversation": "node dist/conversation/server.js",
+    "start:gemini": "node dist/gemini/server.js",
+    "dev": "npm run dev:conversation",
+    "dev:conversation": "ts-node-dev --respawn --transpile-only src/conversation/server.ts",
+    "dev:gemini": "ts-node-dev --respawn --transpile-only src/gemini/server.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.10.0",
+    "axios": "^1.18.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.2",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.14.0",
+    "sequelize-cli": "^6.6.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}
