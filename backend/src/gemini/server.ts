@@ -10,7 +10,7 @@ async function main() {
   await initDb();
   const app = createGeminiApp();
   app.listen(geminiPort, () => {
-    console.log(`Gemini service listening on http://localhost:${geminiPort}`);
+    console.log(`Gemini service listening on port ${geminiPort}`);
   });
 }
 

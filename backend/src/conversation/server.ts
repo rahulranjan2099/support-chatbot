@@ -10,7 +10,7 @@ async function main() {
   await initDb();
   const app = createConversationApp();
   app.listen(port, () => {
-    console.log(`Conversation service listening on http://localhost:${port}`);
+    console.log(`Conversation service listening on ${port}`);
   });
 }
 

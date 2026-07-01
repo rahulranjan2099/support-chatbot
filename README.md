@@ -14,12 +14,7 @@ cd ../frontend && npm install
 Create `backend/.env`:
 
 ```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=spurchat
-DB_USERNAME=postgres
-DB_PASSWORD=password
-DB_SSL=false
+DATABASE_URL=postgresql://postgres:password@localhost:5432/spurchat
 SEQUELIZE_LOGGING=false
 
 PORT=5000
@@ -28,6 +23,14 @@ GEMINI_SERVICE_URL=http://localhost:5001
 GEMINI_MODEL=gemini-2.5-flash
 GEMINI_API_KEY=your_gemini_api_key
 ```
+
+Create `frontend/.env`:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000
+```
+
+For production, set `VITE_API_BASE_URL` to your deployed conversation API URL.
 
 ## Database
 
