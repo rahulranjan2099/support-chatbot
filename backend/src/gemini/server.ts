@@ -4,7 +4,7 @@ import { createGeminiApp } from './app';
 
 dotenv.config();
 
-const geminiPort = Number(process.env.GEMINI_PORT || 5001);
+const geminiPort = Number(process.env.PORT || process.env.GEMINI_PORT || 5001);
 
 async function main() {
   await initDb();

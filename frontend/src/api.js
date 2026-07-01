@@ -18,7 +18,7 @@ function throwApiError(err) {
 
 export async function generateChat(messages, sessionData) {
   try {
-    const resp = await client.post('/sessions', { messages, sessionData })
+    const resp = await client.post('/chat', { messages, sessionData })
     return resp.data
   } catch (err) {
     throwApiError(err)
@@ -27,7 +27,7 @@ export async function generateChat(messages, sessionData) {
 
 export async function fetchSessions() {
   try {
-    const resp = await client.get('/sessions')
+    const resp = await client.get('/chat')
     return resp.data
   } catch (err) {
     throwApiError(err)
@@ -36,7 +36,7 @@ export async function fetchSessions() {
 
 export async function fetchChatSessions(sessionId) {
   try {
-    const resp = await client.get(`/sessions/${sessionId}/messages`)
+    const resp = await client.get(`/chat/${sessionId}/messages`)
     return resp.data
   } catch (err) {
     throwApiError(err)

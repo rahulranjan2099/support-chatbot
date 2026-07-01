@@ -4,13 +4,14 @@ import { createConversationApp } from './app';
 
 dotenv.config();
 
-const port = Number(process.env.PORT || 5000);
+// const port = Number(process.env.PORT || 5000);
+const conversationPort = Number(process.env.PORT || process.env.CONVERSATION_PORT || 5000);
 
 async function main() {
   await initDb();
   const app = createConversationApp();
-  app.listen(port, () => {
-    console.log(`Conversation service listening on ${port}`);
+  app.listen(conversationPort, () => {
+    console.log(`Conversation service listening on ${conversationPort}`);
   });
 }
 
